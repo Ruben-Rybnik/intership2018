@@ -9,7 +9,7 @@
 #include <vtkSmartPointer.h>
 #include <vtkProperty.h>
 #include <vtkExtractVOI.h>
-#include <vtkImageExtractComponents.h>
+#include <vtkImageConnectivityFilter.h>
 
 
 
@@ -24,7 +24,7 @@ namespace gris
 		return vtkSmartPointer<T>::New();
 	}
 
-	/*class ExtractComponents
+	class ExtractComponents
 	{
 	public:
 		ExtractComponents()
@@ -33,7 +33,7 @@ namespace gris
 			mThresh->SetInValue(1);
 			mThresh->SetOutValue(0);
 
-			extract = make_vtk<vtkImageExtractComponents>();
+			extract = make_vtk<vtkImageConnectivityFilter>();
 			extract->SetComponents(300);
 			
 			mMarchingCubes = make_vtk<vtkMarchingCubes>();
@@ -83,13 +83,13 @@ namespace gris
 		}
 	
 	private:
-		vtkSmartPointer<vtkImageExtractComponents>extract;
+		vtkSmartPointer<vtkImageConnectivityFilter>extract;
 		vtkSmartPointer<vtkImageThreshold>mThresh;
 		vtkSmartPointer<vtkActor>mActor;
 		vtkSmartPointer<vtkPolyDataMapper>mMapper;
 		vtkSmartPointer<vtkMarchingCubes>mMarchingCubes;
 
-	};*/
+	};
 	
 	
 	class Label3D
